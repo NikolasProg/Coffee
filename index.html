@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Кофейный бар</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="icon" type="image/x-icon" href="images/iconka.png">
+    <script src="app.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js" type="text/javascript"></script>
+    <script src="https://cdn.jsdelivr.net/npm/jquery.maskedinput@1.4.1/src/jquery.maskedinput.js" type="text/javascript"></script>
+</head>
+<body>
+    <div id="main">
+        <h1>Онлайн магазин</h1>
+        <img class="bot" src="images/bot.png">
+        <p>Привет друзья. <br>Добро пожаловать в STASHKOV Coffee!!!</p>
+        <button class="btn1" id="buy"><font color="black">Заказать</font></button>
+    </div>
+    
+    <div class="container" id="coffee">
+    <h2>Кофе</h2>
+    <div class="inner">
+        <div class="item">
+            <img src="images/Эспрессо.png" alt="Эспрессо" class="img">
+            <p>Эспрессо</p>
+			<select id="user_obym">
+            <option value="250 мл">250 мл</option>
+        </select>
+            <button class="btn" id="btn1">100р</button>
+        </div>
+        <div class="item">
+            <img src="images/Американо.png" alt="Американо" class="img">
+            <p>Американо</p>
+			<select id="user_obym">
+                <option value="250 мл">250 мл</option>
+                <option value="350 мл + 30р">350 мл + 30р</option>
+            </select>
+            <button class="btn" id="btn2">100р</button>
+        </div>
+        <div class="item">
+            <img src="images/Капучино.png" alt="Капучино" class="img">
+            <p>Капучино</p>
+			<select id="user_obym">
+                <option value="250 мл">250 мл</option>
+                <option value="350 мл + 30р">350 мл + 30р</option>
+                <option value="400 мл + 60р">400 мл + 60р</option>
+            </select>
+            <button class="btn" id="btn3">130р</button>
+        </div>
+        <div class="item">
+            <img src="images/Латте.png" alt="Латте" class="img">
+            <p>Латте</p>
+			<select id="user_obym">
+                <option value="350 мл">350 мл</option>
+                <option value="400 мл + 30р">400 мл + 30р</option>
+            </select>
+            <button class="btn" id="btn4">160р</button>
+        </div>
+        <div class="item">
+            <img src="images/Раф.png" alt="Раф" class="img">
+            <p>Раф</p>
+			<select id="user_obym">
+                <option value="350 мл">350 мл</option>
+                <option value="400 мл + 20р">400 мл + 20р</option>
+            </select>
+            <button class="btn" id="btn5">170р</button>
+        </div>
+        <div class="item">
+            <img src="images/Раф Халва.png" alt="Раф Халва" class="img">
+            <p>Раф Халва</p>
+			<select id="user_obym">
+                <option value="350 мл">350 мл</option>
+                <option value="400 мл + 20р">400 мл + 20р</option>
+            </select>
+            <button class="btn" id="btn6">170р</button>
+        </div>
+        <div class="item">
+            <img src="images/Флет Уайт.png" alt="Флет Уайт" class="img">
+            <p>Флет Уайт</p>
+			<select id="user_obym">
+                <option value="250 мл">250 мл</option>
+                <option value="350 мл + 30р">350 мл + 30р</option>
+            </select>
+            <button class="btn" id="btn7">150р</button>
+        </div>
+        <div class="item">
+            <img src="images/Моккачино.png" alt="Моккачино" class="img">
+            <p>Моккачино</p>
+			<select id="user_obym">
+                <option value="350 мл">350 мл</option>
+                <option value="400 мл + 30р">400 мл + 30р</option>
+            </select>
+            <button class="btn" id="btn8">160р</button>
+        </div>
+        <div class="item">
+            <img src="images/Глясе.png" alt="Глясе" class="img">
+            <p>Глясе</p>
+			<select id="user_obym">
+                <option value="350 мл">350 мл</option>
+                <option value="400 мл + 30р">400 мл + 30р</option>
+            </select>
+            <button class="btn" id="btn9">190р</button>
+        </div>
+    </div>
+</div>
+
+<div class="usercard" id="user"></div>
+<div id="cart">
+    <h2>Корзина</h2>
+    <ul id="cart-items">
+        <!-- Здесь будут отображаться выбранные товары -->
+    </ul>
+    <p id="total">Итого: 0р</p>
+    <button class="btn" id="clear-cart">Очистить</button>
+	<button class="btn" id="checkout">Заказать</button>
+</div>
+
+    <div class="usercard" id="user"></div>
+    <form id="form">
+        <label>ФИО <span>*</span></label>
+        <input type="text" placeholder="Иван Иванович Иванов" id="user_name">
+        <label>Ссылка на фаш профиль в Telegram <span>*</span></label>
+        <input type="text" placeholder="@Username" id="user_email">
+        <label>Номер телефона <span>*</span></label>
+        <input type="tel" maxlength="12" placeholder="+7 (999) 999-99-99" class="phone_mask" id="user_phone">
+        <label>Комментарий</label>
+        <input type="text" placeholder="Комментарий бариста" id="user_koment">                  
+        <div id="error"></div>
+        <button class="btn0" id="order"><font color="black">Оформить</font></button>
+    </form>
+    <script src="js/app.js"></script>
+    <script src="https://telegram.org/js/telegram-web-app.js"></script>
+    <script src="js/jquery.maskedinput.min.js"></script>
+</body>
+</html>
