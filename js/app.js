@@ -97,14 +97,14 @@ $(document).ready(function () {
         fillUserData();
     });
 
-    order.click(function () {
-        $("#error").text('');
-        var name = $("#user_name").val();
-        var email = $("#user_email").val();
-        var phone = $("#user_phone").val();
-        var koment = $("#user_koment").val();
-		var items = $("#cartItems").val();
-		var total = $("#total").val();
+    order.addEventListener("click", () => {
+        document.getElementById("error").innerText = '';
+        let name = document.getElementById("user_name").value;
+        let email = document.getElementById("user_email").value;
+        let phone = document.getElementById("user_phone").value;
+        let koment = document.getElementById("user_koment").value;
+		let items = document.getElementById("cartItems").value;
+		let total = document.getElementById("total").value;
 
         if (name.length < 5) {
             $("#error").text("Ошибка в имени");
@@ -119,7 +119,7 @@ $(document).ready(function () {
             return;
         }
 
-        var data = {
+        let data = {
             name: name,
             email: email,
             phone: phone,
