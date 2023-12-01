@@ -102,7 +102,7 @@ $(document).ready(function () {
     let email = $("#user_email").val();
     let phone = $("#user_phone").val();
     let koment = $("#user_koment").val();
-    let items = $("#cartItems").text();
+    let items = $("#cart-items").text();
     let total = $("#total").text();
 
     if (name.length < 5) {
