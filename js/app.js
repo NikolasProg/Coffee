@@ -5,8 +5,6 @@ $(document).ready(function () {
     var total = 0;
     
     let tg = window.Telegram.WebApp;
-    let buy = document.getElementById("buy");
-    let order = document.getElementById("order");
 
     tg.expand();
 
