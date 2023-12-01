@@ -96,34 +96,34 @@ $(document).ready(function () {
         $("#cart").show();
     });
 
-    order.addEventListener("click", () => {
-        document.getElementById("error").innerText = '';
-        let name = document.getElementById("user_name").value;
-        let email = document.getElementById("user_email").value;
-        let phone = document.getElementById("user_phone").value;
-        let koment = document.getElementById("user_koment").value;
+    order.click(function () {
+    $("#error").text('');
+    let name = $("#user_name").val();
+    let email = $("#user_email").val();
+    let phone = $("#user_phone").val();
+    let koment = $("#user_koment").val();
 
-        if (name.length < 5) {
-            $("#error").text("Ошибка в имени");
-            return;
-        }
-        if (email.length < 5) {
-            $("#error").text("Ошибка в email");
-            return;
-        }
-        if (phone.length < 5) {
-            $("#error").text("Ошибка в номере телефона");
-            return;
-        }
+    if (name.length < 5) {
+        $("#error").text("Ошибка в имени");
+        return;
+    }
+    if (email.length < 5) {
+        $("#error").text("Ошибка в email");
+        return;
+    }
+    if (phone.length < 5) {
+        $("#error").text("Ошибка в номере телефона");
+        return;
+    }
 
-        let data = {
-            name: name,
-            email: email,
-            phone: phone,
-            koment: koment
-        }
+    let data = {
+        name: name,
+        email: email,
+        phone: phone,
+        koment: koment
+    }
 
-        tg.sendData(JSON.stringify(data));
-        tg.close();
-    });
+    tg.sendData(JSON.stringify(data));
+    tg.close();
+});
 });
