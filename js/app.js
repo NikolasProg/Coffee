@@ -102,8 +102,8 @@ $(document).ready(function () {
     let email = $("#user_email").val();
     let phone = $("#user_phone").val();
     let koment = $("#user_koment").val();
-    let items = $("#cartItems").val();
-	let total = $("#total").val();
+    let items = $("#cartItems").text();
+    let total = $("#total").text();
 
     if (name.length < 5) {
         $("#error").text("Ошибка в имени");
