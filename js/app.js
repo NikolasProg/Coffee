@@ -3,10 +3,6 @@ $(".phone_mask").mask("+7(999)999-99-99");
 $(document).ready(function () {
     var cartItems = [];
     var total = 0;
-    
-    var tg = window.Telegram.WebApp;
-
-    tg.expand();
 
     function addToCart(itemName, itemPrice, itemVolume) {
         if (isNaN(itemPrice)) {
@@ -87,9 +83,12 @@ $(document).ready(function () {
         fillUserData();
     });
 
-    var buy = document.getElementById("buy");
-    var order = document.getElementById("order");
+    let tg = window.Telegram.WebApp;
+    var buy = $("#buy");
+    var order = $("#order");
 
+    tg.expand();
+    
     buy.click(function () {
         $("#main").hide();
         $("#coffee").show();
@@ -97,18 +96,12 @@ $(document).ready(function () {
         $("#cart").show();
     });
 
-    order.click(function () {
-        $("#coffee").hide();
-        $("#form").show();
-        fillUserData();
-    });
-
     order.addEventListener("click", () => {
         document.getElementById("error").innerText = '';
-        var name = document.getElementById("user_name").value;
-        var email = document.getElementById("user_email").value;
-        var phone = document.getElementById("user_phone").value;
-        var koment = document.getElementById("user_koment").value;
+        let name = document.getElementById("user_name").value;
+        let email = document.getElementById("user_email").value;
+        let phone = document.getElementById("user_phone").value;
+        let koment = document.getElementById("user_koment").value;
 
         if (name.length < 5) {
             $("#error").text("Ошибка в имени");
@@ -123,7 +116,7 @@ $(document).ready(function () {
             return;
         }
 
-        var data = {
+        let data = {
             name: name,
             email: email,
             phone: phone,
