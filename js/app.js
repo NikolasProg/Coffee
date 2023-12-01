@@ -123,7 +123,7 @@ $(document).ready(function () {
         email: email,
         phone: phone,
         koment: koment,
-        items: cartItems,
+        items: items,
         total: total
     }
 
