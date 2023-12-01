@@ -4,7 +4,7 @@ $(document).ready(function () {
     var cartItems = [];
     var total = 0;
     
-    let tg = window.Telegram.WebApp;
+    var tg = window.Telegram.WebApp;
 
     tg.expand();
 
@@ -87,8 +87,8 @@ $(document).ready(function () {
         fillUserData();
     });
 
-    let buy = document.getElementById("buy");
-    let order = document.getElementById("order");
+    var buy = document.getElementById("buy");
+    var order = document.getElementById("order");
 
     buy.click(function () {
         $("#main").hide();
@@ -105,10 +105,10 @@ $(document).ready(function () {
 
     order.addEventListener("click", () => {
         document.getElementById("error").innerText = '';
-        let name = document.getElementById("user_name").value;
-        let email = document.getElementById("user_email").value;
-        let phone = document.getElementById("user_phone").value;
-        let koment = document.getElementById("user_koment").value;
+        var name = document.getElementById("user_name").value;
+        var email = document.getElementById("user_email").value;
+        var phone = document.getElementById("user_phone").value;
+        var koment = document.getElementById("user_koment").value;
 
         if (name.length < 5) {
             $("#error").text("Ошибка в имени");
@@ -123,7 +123,7 @@ $(document).ready(function () {
             return;
         }
 
-        let data = {
+        var data = {
             name: name,
             email: email,
             phone: phone,
