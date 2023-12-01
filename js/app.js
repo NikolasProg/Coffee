@@ -1,6 +1,14 @@
+$(".phone_mask").mask("+7(999)999-99-99");       
+
 $(document).ready(function () {
     var cartItems = [];
     var total = 0;
+    
+    let tg = window.Telegram.WebApp;
+    let buy = document.getElementById("buy");
+    let order = document.getElementById("order");
+
+    tg.expand();
 
     function addToCart(itemName, itemPrice, itemVolume) {
         if (isNaN(itemPrice)) {
