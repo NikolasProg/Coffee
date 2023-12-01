@@ -102,6 +102,8 @@ $(document).ready(function () {
     let email = $("#user_email").val();
     let phone = $("#user_phone").val();
     let koment = $("#user_koment").val();
+    let items = $("#cartItems").val();
+	let total = $("#total").val();
 
     if (name.length < 5) {
         $("#error").text("Ошибка в имени");
@@ -120,7 +122,9 @@ $(document).ready(function () {
         name: name,
         email: email,
         phone: phone,
-        koment: koment
+        koment: koment,
+        items: cartItems,
+        total: total
     }
 
     tg.sendData(JSON.stringify(data));
