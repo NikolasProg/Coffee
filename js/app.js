@@ -87,8 +87,8 @@ $(document).ready(function () {
         fillUserData();
     });
 
-    var buy = $("#buy");
-    var order = $("#order");
+    let buy = document.getElementById("buy");
+    let order = document.getElementById("order");
 
     buy.click(function () {
         $("#main").hide();
