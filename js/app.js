@@ -285,3 +285,4 @@ orderButton.addEventListener("click", function () {
     tg.sendData(JSON.stringify(data));
     tg.close();
 });
+});
