@@ -1,149 +1,43 @@
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
 body {
-    font-family: 'Montserrat', sans-serif;
-    font-weight: 200;
-    font-size: 18px;
-    color: var(--tg-theme-text-color);
-    background-color: var(--tg-theme-bg-color);
-    margin: 0px;
+    background-color: #E3E7E8;
+    font-family: system-ui;
+    font-size: 16px;
 }
-
-button.btn0 {
-    border: 2px solid black;
-    margin: 20px;
-    height: 70px;
-    width: 150px;
-    font-size: 18px;
-}
-
-button.btn1 {
-    border: 2px solid black;
-    margin: 40px;
-    height: 70px;
-    width: 150px;
-    font-size: 18px;
-}
-
-img.bot {
-    width: 150px;
-    margin: 20px auto;
-}
-
-#main {
-    width: 100%;
-    padding: 20px;
-    text-align: center;
-}
-
-h1 {
-    margin-top: 30px;
-    margin-bottom: 10px;
-}
-
-h2 {
-    margin-top: 20px;
-    margin-bottom: 10px;
-    text-align: center;
-}
-
-p {
-    margin-bottom: 10px;
-}
-
-img {
-    width: 100px;
-    margin: 10px auto;
-}
-
-button {
-    border: 2px solid black;
-    border-radius: 5px;
-    height: 50px;
-    width: 100px;
-    font-size: 10px;
-    font-weight: 30;
-    cursor: pointer;
-    transition: all 500ms ease;
-    color: var(--tg-theme-button-color);
-    background: var(--tg-theme-button-text-color);
-}
-
-button:hover {
-    background: #dece78;
-}
-
-:root {
-    --tg-theme-text-color: #4b280a;
-    --tg-theme-bg-color: white;
-    --tg-theme-button-color: #333;
-    --tg-theme-button-text-color: green;
-}
-
-#form {
-    display: none;
-    width: 90%;
-    flex-direction: column;
-    padding: 20px;
-    box-sizing: border-box;
-    text-align: center;
-    max-width: 400px;
-    margin: 0 auto;
-}
-
-#form label span {
-    color: red;
-}
-
-#form label,
-#form input {
-    display: block;
-    width: 100%;
-    box-sizing: border-box;
-}
-
-#form label {
-    margin-bottom: 5px;
-    font-weight: bold;
-}
-
-#form input {
-    padding: 10px 15px;
-    margin-top: 10px;
-}
-
-/* Стили из style_tea.css */
 
 .container {
-	display: none;
-    max-width: 600px;
-    margin: 0 auto;
-    text-align: center;
+    width: 100%;
+    max-width: 1000px;
+    margin: auto;
+    transition: 0.5s;
 }
 
-.inner {
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    grid-template-rows: 160px 160px;
-    row-gap: 80px;
-}
-
-.usercard {
-	display: none;
-    text-align: center;
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
     margin-top: 20px;
 }
 
-.img {
-    width: 100px;
+header .shopping {
+    position: relative;
+    text-align: right;
 }
 
-.item {
-    text-align: center;
+header .shopping img {
+    width: 30px;
+}
+
+header .shopping span {
+    background: red;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #fff;
+    position: absolute;
+    top: -8px;
+    right: -8px;
+    padding: 3px 8px;
 }
 
 select {
@@ -156,48 +50,186 @@ select {
     border-radius: 5px;
 }
 
-button.btn {
-    border: 2px solid black;
-    display: inline-block;
-    background: rgb(255, 255, 255);
-    border-radius: 10px;
-    color: #000000;
-    text-transform: uppercase;
-    font-weight: 700;
-    transition: background .2s linear;
+.list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    margin-top: 20px;
+    justify-content: space-between;
+}
+
+.list .item {
+    width: calc(33.33% - 20px);
+    box-sizing: border-box;
+    text-align: center;
+    background-color: #DCE0E1;
+    padding: 20px;
+    box-shadow: 0 10px 10px #757676;
+    letter-spacing: 1px;
+    margin-bottom: 20px;
+}
+
+.list .item img {
+    width: 100%;
+    height: auto;
+    max-height: 250px;
+    object-fit: cover;
+}
+
+.list .item .title {
+    font-weight: 600;
+}
+
+.list .item .price {
+    margin: 10px;
+}
+
+.list .item button {
+    background-color: #1C1F25;
+    color: #fff;
+    width: 100%;
+    padding: 10px;
+    transition: background-color 0.3s;
+}
+
+.list .item button:hover {
+    background-color: #E8BC0E;
+}
+
+.card {
+    position: fixed;
+    top: 0;
+    left: 100%;
+    width: 100%;
+    max-width: 500px;
+    background-color: #453E3B;
+    height: 100vh;
+    transition: 0.5s;
+}
+
+.active .card {
+    left: 0;
+}
+
+.active .container {
+    transform: translateX(0);
+}
+
+.card h1 {
+    color: #E8BC0E;
+    font-weight: 100;
+    margin: 0;
+    padding: 0 20px;
+    height: 80px;
+    display: flex;
+    align-items: center;
+}
+
+.card .checkOut {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+}
+
+.card .checkOut div {
+    background-color: #E8BC0E;
+    width: 100%;
+    height: 70px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: bold;
     cursor: pointer;
 }
 
-button.btn:hover {
-    background: lightgreen;
+.card .checkOut div:nth-child(2) {
+    background-color: #1C1F25;
+    color: #fff;
 }
 
-#coffee {
-    max-width: 800px;
-    margin: 20px auto;
+.listCard li {
+    display: grid;
+    grid-template-columns: 100px repeat(3, 1fr);
+    color: #fff;
+    row-gap: 10px;
 }
 
-#cart {
-	display: none;
-    width: 40%;
-    margin: 20px auto;
-    text-align: center;
+.listCard li div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
-#cart-items {
-    list-style: none;
-    padding: 0;
+.listCard li img {
+    width: 100%;
+    height: auto;
+    max-height: 80px;
 }
 
-#cart-items li {
+.listCard li button {
+    background-color: #fff5;
+    border: none;
+}
+
+.listCard .count {
+    margin: 0 10px;
+}
+
+@media (min-width: 768px) {
+    body {
+        font-size: 18px;
+    }
+
+    .list .item {
+        width: calc(33.33% - 20px);
+        margin-bottom: 20px;
+    }
+}
+/* Добавленные стили для всплывающей формы */
+.overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+}
+
+#form {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 8px;
+    z-index: 1000;
+}
+
+#form label,
+#form input,
+#form button {
+    display: block;
     margin-bottom: 10px;
 }
 
-#total {
+#form label {
     font-weight: bold;
 }
 
-#clear-cart,
-#checkout {
-    margin-top: 15px;
+#form button {
+    background-color: #1C1F25;
+    color: #fff;
+    padding: 10px;
+    cursor: pointer;
+}
+
+/* Скрыть форму изначально */
+.hidden-form {
+    opacity: 0;
+    pointer-events: none;
 }
