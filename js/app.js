@@ -179,8 +179,6 @@ function getFormattedPrice(price) {
     return price !== 'такого объёма нет' ? String(price).replace(/р$/, '') + 'р' : 'такого объёма нет';
 }
 
-initApp();
-
 function addToCard(key) {
     const selectedVolume = document.getElementById(`user_obym_${key}`).value;
     const productKey = `${key}_${selectedVolume}`;
