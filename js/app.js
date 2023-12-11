@@ -18,7 +18,7 @@ let products = [
     {
         id: 1,
         name: 'ЭСПРЕССО',
-        image: '1.PNG',
+        image: '1.png',
         prices: {
             250: 100,
             350: 'такого объёма нет',
@@ -28,7 +28,7 @@ let products = [
     {
         id: 2,
         name: 'АМЕРИКАНО',
-        image: '2.PNG',
+        image: '2.png',
         prices: {
             250: 100,
             350: 130,
@@ -38,7 +38,7 @@ let products = [
     {
         id: 3,
         name: 'КАПУЧИНО',
-        image: '3.PNG',
+        image: '3.png',
         prices: {
             250: 130,
             350: 160,
@@ -48,7 +48,7 @@ let products = [
     {
         id: 4,
         name: 'ЛАТТЕ',
-        image: '4.PNG',
+        image: '4.png',
         prices: {
             250: 'такого объёма нет',
             350: 160,
@@ -58,7 +58,7 @@ let products = [
     {
         id: 5,
         name: 'РАФ',
-        image: '5.PNG',
+        image: '5.png',
         prices: {
             250: 'такого объёма нет',
             350: 170,
@@ -68,7 +68,7 @@ let products = [
     {
         id: 6,
         name: 'РАФ ХАЛВА',
-        image: '6.PNG',
+        image: '6.png',
         prices: {
             250: 'такого объёма нет',
             350: 170,
@@ -78,7 +78,7 @@ let products = [
     {
         id: 7,
         name: 'ФЛЕТ УАЙТ',
-        image: '7.PNG',
+        image: '7.png',
         prices: {
             250: 150,
             350: 180,
@@ -88,7 +88,7 @@ let products = [
     {
         id: 8,
         name: 'МОККАЧИНО',
-        image: '8.PNG',
+        image: '8.png',
         prices: {
             250: 'такого объёма нет',
             350: 160,
@@ -98,7 +98,7 @@ let products = [
     {
         id: 9,
         name: 'ГЛЯСЕ',
-        image: '9.PNG',
+        image: '9.png',
         prices: {
             250: 'такого объёма нет',
             350: 190,
