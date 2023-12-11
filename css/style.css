@@ -194,8 +194,8 @@ select {
     }
 
     .list .item {
-        width: 80%; /* Одна строка, поэтому 100% ширина */
-        margin-bottom: 10px;
+        width: 80%;
+        margin: 0 auto 10px; /* Добавлено свойство margin для выравнивания по центру */
     }
 }
 
