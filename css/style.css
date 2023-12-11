@@ -177,16 +177,28 @@ select {
     margin: 0 10px;
 }
 
-@media (min-width: 768px) {
+@media (max-width: 768px) {
     body {
         font-size: 18px;
     }
 
+    header {
+        margin-top: 10px;
+    }
+
+    .list {
+        gap: 0;
+        margin-top: 10px;
+        overflow-x: auto; /* Добавим горизонтальный скролл, если элементов не умещается по ширине экрана */
+        -webkit-overflow-scrolling: touch; /* Поддержка плавного скролла в iOS */
+    }
+
     .list .item {
-        width: calc(33.33% - 20px);
-        margin-bottom: 20px;
+        width: 100%; /* Одна строка, поэтому 100% ширина */
+        margin-bottom: 10px;
     }
 }
+
 /* Добавленные стили для всплывающей формы */
 .overlay {
     display: none;
