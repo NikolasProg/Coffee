@@ -198,16 +198,18 @@ select {
         margin: 0 auto 10px; /* Добавлено свойство margin для выравнивания по центру */
     }
     .card {
-        width: 100%; /* Используйте 100% ширины экрана для мобильных устройств */
-        max-width: none; /* Уберите максимальную ширину, чтобы корзина могла растягиваться по всей ширине */
-        left: 0;
-    }
-	.active .container {
-        transform: translateX(0);
+        position: fixed;
+        top: 0;
+        left: 100%;
+        width: 500%;
+        max-width: 500px;
+        background-color: #453E3B;
+        height: 100vh;
+        transition: left 0.5s; /* Используйте транзицию для анимации изменения свойства left */
     }
 
     .active .card {
-        left: 0;
+        left: calc(100% - 500px);
     }
 }
 
