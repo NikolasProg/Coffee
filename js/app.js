@@ -118,6 +118,43 @@ let products = [
 
 let listCards = {};
 
+// Добавьте описание к каждому товару в цикле
+products.forEach((product) => {
+    let newDiv = document.createElement('div');
+    newDiv.classList.add('item');
+    newDiv.innerHTML = `
+        <img src="image/${product.image}" data-description="${product.description}">
+        <div class="title">${product.name}</div>
+        <div class="price" id="price_${product.id}">${getFormattedPrice(product.prices[250])}</div>
+        <select id="user_obym_${product.id}" onchange="updatePrice(${product.id})">
+            <option value="250">250 мл</option>
+            <option value="350">350 мл</option>
+            <option value="400">400 мл</option>
+        </select>
+        <button onclick="addToCard(${product.id})">Добавить в корзину</button>`;
+    list.appendChild(newDiv);
+});
+
+// Добавьте следующий код после вашего существующего кода
+document.addEventListener('DOMContentLoaded', function () {
+    // Получите все элементы с классом 'item'
+    let items = document.querySelectorAll('.item');
+
+    // Добавьте обработчик события для каждого элемента
+    items.forEach(function (item) {
+        let img = item.querySelector('img');
+
+        // Добавьте обработчик события для клика на изображение
+        img.addEventListener('click', function () {
+            // Получите описание товара из атрибута 'data-description'
+            let description = img.getAttribute('data-description');
+
+            // Покажите всплывающее окно с описанием
+            alert(description);
+        });
+    });
+});
+
 function initApp() {
     products.forEach((value, key) => {
         let newDiv = document.createElement('div');
@@ -135,6 +172,7 @@ function initApp() {
         list.appendChild(newDiv);
     });
 }
+
 
 // Новая функция для форматирования цены
 function getFormattedPrice(price) {
