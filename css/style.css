@@ -100,7 +100,7 @@ select {
     position: fixed;
     top: 0;
     left: 100%;
-    width: 100%;
+    width: 500%;
     max-width: 500px;
     background-color: #453E3B;
     height: 100vh;
@@ -108,11 +108,11 @@ select {
 }
 
 .active .card {
-    left: 0;
+    left: calc(100% - 500px);
 }
 
 .active .container {
-    transform: translateX(0);
+    transform: translateX(-200px);
 }
 
 .card h1 {
