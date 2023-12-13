@@ -312,7 +312,23 @@ orderButton.addEventListener("click", function () {
     let email = document.getElementById("user_email").value;
     let phone = document.getElementById("user_phone").value;
     let koment = document.getElementById("user_koment").value;
-    let items = document.getElementById("listCard").innerHTML; // Используем innerHTML, чтобы получить HTML содержимое корзины
+
+    // Используем исправленный код для получения данных о товарах в корзине
+    let listCardContents = [];
+    let listCardItems = document.querySelectorAll('.listCard li');
+
+    listCardItems.forEach((item) => {
+        let itemData = {};
+        itemData.name = item.querySelector('div:nth-child(2)').textContent.trim();
+        itemData.price = item.querySelector('div:nth-child(3)').textContent.trim();
+        itemData.volume = item.querySelector('div:nth-child(4)').textContent.trim();
+        itemData.quantity = item.querySelector('.count').textContent.trim();
+        listCardContents.push(itemData);
+    });
+
+    // Преобразуем массив объектов в JSON-строку
+    let itemsJSON = JSON.stringify(listCardContents);
+
     let total = document.querySelector(".total").textContent;
 
     if (name.length < 5) {
@@ -329,7 +345,7 @@ orderButton.addEventListener("click", function () {
         email: email,
         phone: phone,
         koment: koment,
-        items: items,
+        items: itemsJSON, // Теперь используем JSON-строку с информацией о товарах
         total: total
     };
 
