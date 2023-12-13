@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -8,12 +9,13 @@
     <link rel="stylesheet" href="css/style.css">
     <link rel="icon" type="image/x-icon" href="image/iconka.png">
 </head>
+
 <body class="">
-    
+
     <div class="container">
         <header>
             <h1>STASHKOV COFFEE</h1>
-            <div class="shopping">			
+            <div class="shopping">
                 <img src="image/shopping.svg">
                 <span class="quantity">0</span>
             </div>
@@ -43,28 +45,23 @@
         <input type="text" placeholder="Иван Иванович Иванов" id="user_name">
         <label>Номер телефона <span>*</span></label>
         <input type="tel" maxlength="12" placeholder="+7 (999) 999-99-99" class="phone_mask" id="user_phone">
-		<label>Ссылка на фаш профиль в Telegram </label>
+        <label>Ссылка на фаш профиль в Telegram </label>
         <input type="text" placeholder="@Username" id="user_email">
         <label>Комментарий</label>
         <input type="text" placeholder="Комментарий бариста" id="user_koment">
         <div id="error"></div>
-        <button class="btn0" id="order">Оформить</button>
+        <button type="button" class="btn0" id="order">Оформить</button>
     </form>
 
-    <script src="js/app.js"></script>
-	<script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js" type="text/javascript"></script>
-    <script src="https://cdn.jsdelivr.net/npm/jquery.maskedinput@1.4.1/src/jquery.maskedinput.js" type="text/javascript"></script>
-	<script src="js/jquery.maskedinput.min.js"></script>
-	<script src="https://telegram.org/js/telegram-web-app.js"></script>
-	<script>
-        $(".phone_mask").mask("+7(999)999-99-99");
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/jquery.maskedinput@1.4.1/src/jquery.maskedinput.js"></script>
+    <script src="https://telegram.org/js/telegram-web-app.js"></script>
+    <script>
+        $(document).ready(function () {
+            $(".phone_mask").mask("+7 (999) 999-99-99");
 
-        // Дождитесь готовности DOM
-        document.addEventListener("DOMContentLoaded", function () {
-            // Выберите кнопку заказа по ее ID
             var orderButton = document.getElementById("order");
 
-            // Добавьте прослушиватель событий к кнопке заказа
             orderButton.addEventListener("click", function () {
                 document.getElementById("error").textContent = '';
 
@@ -113,4 +110,5 @@
         });
     </script>
 </body>
+
 </html>
