@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -9,13 +8,12 @@
     <link rel="stylesheet" href="css/style.css">
     <link rel="icon" type="image/x-icon" href="image/iconka.png">
 </head>
-
 <body class="">
-
+    
     <div class="container">
         <header>
             <h1>STASHKOV COFFEE</h1>
-            <div class="shopping">
+            <div class="shopping">			
                 <img src="image/shopping.svg">
                 <span class="quantity">0</span>
             </div>
@@ -45,70 +43,67 @@
         <input type="text" placeholder="Иван Иванович Иванов" id="user_name">
         <label>Номер телефона <span>*</span></label>
         <input type="tel" maxlength="12" placeholder="+7 (999) 999-99-99" class="phone_mask" id="user_phone">
-        <label>Ссылка на фаш профиль в Telegram </label>
+		<label>Ссылка на фаш профиль в Telegram </label>
         <input type="text" placeholder="@Username" id="user_email">
         <label>Комментарий</label>
         <input type="text" placeholder="Комментарий бариста" id="user_koment">
         <div id="error"></div>
-        <button type="button" class="btn0" id="order">Оформить</button>
+        <button class="btn0" id="order">Оформить</button>
     </form>
 
-    <script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/jquery.maskedinput@1.4.1/src/jquery.maskedinput.js"></script>
-    <script src="https://telegram.org/js/telegram-web-app.js"></script>
+    <script src="js/app.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js" type="text/javascript"></script>
+    <script src="https://cdn.jsdelivr.net/npm/jquery.maskedinput@1.4.1/src/jquery.maskedinput.js" type="text/javascript"></script>
+	<script src="js/jquery.maskedinput.min.js"></script>
+	<script src="https://telegram.org/js/telegram-web-app.js"></script>
     <script>
-        $(document).ready(function () {
-            $(".phone_mask").mask("+7 (999) 999-99-99");
+	$(".phone_mask").mask("+7(999)999-99-99");
+	</script>
+orderButton.addEventListener("click", function () {
+    document.getElementById("error").textContent = '';
 
-            var orderButton = document.getElementById("order");
+    let name = document.getElementById("user_name").value;
+    let email = document.getElementById("user_email").value;
+    let phone = document.getElementById("user_phone").value;
+    let koment = document.getElementById("user_koment").value;
 
-            orderButton.addEventListener("click", function () {
-                document.getElementById("error").textContent = '';
+    // Используем исправленный код для получения данных о товарах в корзине
+    let listCardContents = [];
+    let listCardItems = document.querySelectorAll('.listCard li');
 
-                let name = document.getElementById("user_name").value;
-                let email = document.getElementById("user_email").value;
-                let phone = document.getElementById("user_phone").value;
-                let koment = document.getElementById("user_koment").value;
+    listCardItems.forEach((item) => {
+        let itemData = {};
+        itemData.name = item.querySelector('div:nth-child(2)').textContent.trim();
+        itemData.price = item.querySelector('div:nth-child(3)').textContent.trim();
+        itemData.volume = item.querySelector('div:nth-child(4)').textContent.trim();
+        itemData.quantity = item.querySelector('.count').textContent.trim();
+        listCardContents.push(itemData);
+    });
 
-                let listCardContents = [];
-                let listCardItems = document.querySelectorAll('.listCard li');
+    // Преобразуем массив объектов в JSON-строку
+    let itemsJSON = JSON.stringify(listCardContents);
 
-                listCardItems.forEach((item) => {
-                    let itemData = {};
-                    itemData.name = item.querySelector('div:nth-child(2)').textContent.trim();
-                    itemData.price = item.querySelector('div:nth-child(3)').textContent.trim();
-                    itemData.volume = item.querySelector('div:nth-child(4)').textContent.trim();
-                    itemData.quantity = item.querySelector('.count').textContent.trim();
-                    listCardContents.push(itemData);
-                });
+    let total = document.querySelector(".total").textContent;
 
-                let itemsJSON = JSON.stringify(listCardContents);
+    if (name.length < 5) {
+        document.getElementById("error").textContent = "Ошибка в имени";
+        return;
+    }
+    if (phone.length < 5) {
+        document.getElementById("error").textContent = "Ошибка в номере телефона";
+        return;
+    }
 
-                let total = document.querySelector(".total").textContent;
+    let data = {
+        name: name,
+        email: email,
+        phone: phone,
+        koment: koment,
+        items: itemsJSON, // Теперь используем JSON-строку с информацией о товарах
+        total: total
+    };
 
-                if (name.length < 5) {
-                    document.getElementById("error").textContent = "Ошибка в имени";
-                    return;
-                }
-                if (phone.length < 5) {
-                    document.getElementById("error").textContent = "Ошибка в номере телефона";
-                    return;
-                }
-
-                let data = {
-                    name: name,
-                    email: email,
-                    phone: phone,
-                    koment: koment,
-                    items: itemsJSON,
-                    total: total
-                };
-
-                tg.sendData(JSON.stringify(data));
-                tg.close();
-            });
-        });
-    </script>
-</body>
-
-</html>
+    // Отправка данных в Telegram
+    tg.sendData(JSON.stringify(data));
+    tg.close();
+});
