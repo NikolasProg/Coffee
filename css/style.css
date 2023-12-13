@@ -185,6 +185,29 @@ select {
     header {
         margin-top: 10px;
     }
+	
+	header h1 {
+		margin-left: 20px;
+	}
+	
+	header .shopping img {
+        width: 30px;
+		margin-right: 20px;
+    }
+	
+	header .shopping span {
+        background: red;
+        border-radius: 50%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        color: #fff;
+        position: absolute;
+        top: -8px;
+        right: -8px;
+        padding: 3px 8px;
+		margin-right: 20px;
+    }
 
     .list {
         gap: 0;
@@ -194,22 +217,30 @@ select {
     }
 
     .list .item {
-        width: 80%;
-        margin: 0 auto 10px; /* Добавлено свойство margin для выравнивания по центру */
+        width: 60%; /* Одна строка, поэтому 100% ширина */
+		text-align: center;
+		margin: 0 auto;
+        margin-bottom: 30px;
     }
-    .card {
+	
+	.card {
         position: fixed;
         top: 0;
         left: 100%;
-        width: 500%;
+        width: 100%;
         max-width: 500px;
         background-color: #453E3B;
         height: 100vh;
-        transition: left 0.5s; /* Используйте транзицию для анимации изменения свойства left */
+        transition: 0.5s;
+        overflow-y: auto; /* Добавлено для возможности прокрутки на мобильных устройствах */
     }
 
     .active .card {
-        left: calc(100% - 0px);
+        left: 0; /* При активации, элемент смещается влево и становится видимым на экране */
+    }
+
+    .active .container {
+        transform: translateX(-100%); /* При активации, контейнер смещается влево на 100% ширины экрана */
     }
 }
 
