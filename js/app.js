@@ -305,3 +305,52 @@ overlay.addEventListener('click', () => {
         form.style.display = 'none';
     }, 300);
 });
+
+orderButton.addEventListener("click", function () {
+    document.getElementById("error").textContent = '';
+
+    let name = document.getElementById("user_name").value;
+    let email = document.getElementById("user_email").value;
+    let phone = document.getElementById("user_phone").value;
+    let koment = document.getElementById("user_koment").value;
+
+    // Используем исправленный код для получения данных о товарах в корзине
+    let listCardContents = [];
+    let listCardItems = document.querySelectorAll('.listCard li');
+
+    listCardItems.forEach((item) => {
+        let itemData = {};
+        itemData.name = item.querySelector('div:nth-child(2)').textContent.trim();
+        itemData.price = item.querySelector('div:nth-child(3)').textContent.trim();
+        itemData.volume = item.querySelector('div:nth-child(4)').textContent.trim();
+        itemData.quantity = item.querySelector('.count').textContent.trim();
+        listCardContents.push(itemData);
+    });
+
+    // Преобразуем массив объектов в JSON-строку
+    let itemsJSON = JSON.stringify(listCardContents);
+
+    let total = document.querySelector(".total").textContent;
+
+    if (name.length < 5) {
+        document.getElementById("error").textContent = "Ошибка в имени";
+        return;
+    }
+    if (phone.length < 5) {
+        document.getElementById("error").textContent = "Ошибка в номере телефона";
+        return;
+    }
+
+    let data = {
+        name: name,
+        email: email,
+        phone: phone,
+        koment: koment,
+        items: itemsJSON, // Теперь используем JSON-строку с информацией о товарах
+        total: total
+    };
+
+    // Отправка данных в Telegram
+    tg.sendData(JSON.stringify(data));
+    tg.close();
+});
