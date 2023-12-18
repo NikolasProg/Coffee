@@ -147,11 +147,11 @@ button:hover {
 }
 
 select {
-    width: calc(100% - 20px); /* Подстройте ширину по необходимости */
+    width: calc(100% - 10px); /* Подстройте ширину по необходимости */
     outline: none;
     margin: 10px 0;
-    padding: 10px;
-    font-size: 14px;
+    padding: 5px;
+    font-size: 10px;
     border: 2px solid silver;
     border-radius: 5px;
 }
