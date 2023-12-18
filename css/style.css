@@ -147,7 +147,7 @@ button:hover {
 }
 
 select {
-    width: calc(100% - 10px); /* Подстройте ширину по необходимости */
+    width: calc(100% - 20px); /* Подстройте ширину по необходимости */
     outline: none;
     margin: 10px 0;
     padding: 5px;
