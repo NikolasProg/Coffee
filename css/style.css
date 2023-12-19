@@ -69,25 +69,11 @@ button:hover {
     background: #dece78;
 }
 
-.item button.btn {
-    border: 2px solid black;
-    display: inline-block;
-    background: rgb(255, 255, 255);
-    border-radius: 10px;
-    color: #000000;
-    text-transform: uppercase;
-    font-weight: 700;
-    transition: background .2s linear;
-    cursor: pointer;
-    padding: 8px 15px; /* Уменьшенный отступ */
-    font-size: 14px; /* Уменьшенный размер шрифта */
-}
-
 :root {
     --tg-theme-text-color: #4b280a;
     --tg-theme-bg-color: white;
     --tg-theme-button-color: #333;
-    --tg-theme-button-text-color: green;
+    --tg-theme-button-text-color: brown;
 }
 
 #form {
