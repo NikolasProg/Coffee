@@ -111,7 +111,7 @@ button:hover {
 /* Стили из style_tea.css */
 
 .container {
-	display: none;
+    display: none;
     max-width: 600px;
     margin: 0 auto;
     text-align: center;
@@ -125,7 +125,7 @@ button:hover {
 }
 
 .usercard {
-	display: none;
+    display: none;
     text-align: center;
     margin-top: 20px;
 }
@@ -161,7 +161,7 @@ button.btn {
 }
 
 button.btn:hover {
-    background: lightbrown;
+    background: brown;
 }
 
 #coffee {
